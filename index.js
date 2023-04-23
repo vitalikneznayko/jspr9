@@ -67,11 +67,7 @@ async function fetchQ(countPage) {
         page = element
         main(page)
       })
-      if(page == element){
-        divPage.classList.add('selectPage')
-      }else
-        divPage.classList.remove('selectPage')
-
+        page === element ? divPage.classList.add('selectPage') : divPage.classList.remove('selectPage') 
         divPaginate.appendChild(divPage)
     })
      
@@ -107,6 +103,7 @@ async function fetchQ(countPage) {
     
       const Photo = document.createElement('img');
       Photo.classList.add('Photo');
+      mainDiv.style.background = chosenUser.color
     
       gUser.forEach((element) => {
         const div = document.getElementById(element.id);
@@ -134,5 +131,6 @@ async function fetchQ(countPage) {
 
     divHead.removeChild(profileImage)
     mainDiv.removeChild(Photo)
+    mainDiv.style.background = 'white'
   }
 main();
