@@ -99,3 +99,50 @@ img{
     background-color: red;
     border-radius: 50px;
 }
+.box-Likes{
+    width: 45%;
+    height: 50px;
+    display: flex;
+    justify-content: end;
+}
+.heart {
+    width: 20px; 
+    height: 20px; 
+    background-color: white;
+    margin-top: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.heart::before,
+.heart::after {
+    content : '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+.heart:hover,.heart:hover:before,.heart:hover:after{
+    background-color: red;
+}
+
+.redHeart, .redHeart::after, .redHeart::before{ 
+    background-color: red;
+}
+.redHeart:hover, .redHeart:hover:after, .redHeart:hover:before{ 
+    background-color: brown;
+}
+.LikesText{
+    margin-left: 20px;
+    color: white;
+    font-size: 30px; 
+}

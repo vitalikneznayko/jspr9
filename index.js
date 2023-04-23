@@ -96,7 +96,7 @@ async function fetchQ(countPage) {
     
       divHead.classList.remove('HeadText');
       divHead.classList.add('ListText');
-    
+      
       const profileImage = document.createElement('img');
       profileImage.src = chosenUser.user.profile_image.small;
       HeadContent.textContent = chosenUser.user.username;
@@ -104,18 +104,36 @@ async function fetchQ(countPage) {
       const Photo = document.createElement('img');
       Photo.classList.add('Photo');
       mainDiv.style.background = chosenUser.color
-    
+
+      const divLikes = document.createElement('div')
+      divLikes.classList.add('box-Likes')
+      const HeartLike = document.createElement('div')
+      HeartLike.classList.add('heart')
+      const DivCountLikes = document.createElement('div')
+      let CountLikes = chosenUser.likes
+      DivCountLikes.textContent = CountLikes
+      DivCountLikes.classList.add('LikesText')
+      divLikes.appendChild(HeartLike)
+      divLikes.appendChild(DivCountLikes)
       gUser.forEach((element) => {
         const div = document.getElementById(element.id);
         div.classList.add('hide');
       });
-      
       Photo.src = chosenUser.urls.regular;
       mainDiv.appendChild(Photo);
       divHead.appendChild(profileImage);   
-      divArrow.addEventListener('click', () => reset(gUser, divHead, divArrow, HeadContent, profileImage, Photo));
+      mainDiv.appendChild(divLikes)
+      divArrow.addEventListener('click', () => reset(gUser, divHead, divArrow, HeadContent, profileImage, Photo, divLikes));
+      HeartLike.addEventListener('click',() => ClickOnLikes(HeartLike, DivCountLikes, CountLikes))
+      Photo.addEventListener('dblclick',() => ClickOnLikes(HeartLike, DivCountLikes, CountLikes))
   }
-  function reset (gUser, divHead, divArrow, HeadContent, profileImage, Photo){
+  function ClickOnLikes(HeartLike,DivCountLikes,CountLikes){
+    HeartLike.classList.toggle('redHeart')
+    if(HeartLike.classList.contains('redHeart'))
+      CountLikes += 1
+    DivCountLikes.textContent = CountLikes
+  }
+  function reset (gUser, divHead, divArrow, HeadContent, profileImage, Photo, divLikes){
     gUser.forEach((element) => {
       const div = document.getElementById(element.id);
       div.classList.remove('hide');
@@ -128,9 +146,9 @@ async function fetchQ(countPage) {
     divArrow.classList.add('hide')
     divHead.classList.remove('ListText')
     divHead.classList.add('HeadText')
-
     divHead.removeChild(profileImage)
     mainDiv.removeChild(Photo)
+    mainDiv.removeChild(divLikes)
     mainDiv.style.background = 'white'
   }
 main();
