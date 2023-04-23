@@ -35,14 +35,15 @@
     align-items: center;
 }
 .Photo{
-    width: 50%;
+    width: 53%;
     margin-top: 10px;
-    max-height:640px;
-    border-radius: 50px;
-    cursor:pointer
+    height:620px;
+    border-radius: 40px;
+    object-fit:cover;
+    cursor:pointer;
 }
 .Photo:hover{
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1.6px 1px 1px black;
 }
 .arrow-left {
     width: 15px;
@@ -70,13 +71,13 @@
     font-size: 35px;
 }
 .paginate:hover{
-    color: yellowgreen;
+    color: rgb(255, 255, 0);
 }
 .underline:hover{
     text-decoration: underline;
 }
 .arrow-left:hover,.arrow-right:hover{
-    border-color: yellowgreen;
+    border-color: red;
 }
 .paginate-box{
     width: 53%;
