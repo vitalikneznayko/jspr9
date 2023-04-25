@@ -36,7 +36,6 @@
 }
 .Photo{
     width: 53%;
-    margin-top: 10px;
     height:620px;
     border-radius: 40px;
     object-fit:cover;
